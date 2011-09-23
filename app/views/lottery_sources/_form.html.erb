@@ -1,0 +1,12 @@
+    <% if @lottery_sources.errors.any? %>
+      <ul>
+      <% @lottery_sources.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    <% end %>
+    
+    <p>
+    <%= f.label :name, "貓貓名：" %>
+    <%= f.text_field :name %>
+    </p>
