@@ -1,0 +1,9 @@
+<h1>抽獎名單</h1>
+<ul>
+<% @lottery_sources.each do |list| %>
+  <li><%= list.name %></li>
+<% end %>
+</ul>
+<p>
+  <%= link_to '加新貓貓', :controller => 'LotterySources', :action => 'new' %>
+</p>

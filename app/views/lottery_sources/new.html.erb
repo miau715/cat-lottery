@@ -1,0 +1,6 @@
+<%= form_for @lottery_sources, :url => { :controller => 'lottery_sources', :action => 'create' } do |f| %>
+    <%= f.label :name, "Name" %>
+    <%= f.text_field :name %>
+    
+    <%= f.submit "Create" %>
+<% end %>
