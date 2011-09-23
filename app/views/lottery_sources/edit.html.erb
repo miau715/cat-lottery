@@ -1,0 +1,8 @@
+<h1>編輯貓貓資料</h1>
+<%= form_for @lottery_sources, url: { controller: 'lottery_sources', action: 'update', id: @lottery_sources } do |f| %>
+    <p>
+    <%= f.label :name, "貓貓名：" %>
+    <%= f.text_field :name %>
+    </p>
+    <%= f.submit "我變" %><%= link_to '不想變了', controller: 'LotterySources', action: 'index' %>
+<% end %>

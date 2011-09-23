@@ -1,9 +1,19 @@
 <h1>抽獎名單</h1>
 <ul>
 <% @lottery_sources.each do |list| %>
-  <li><%= list.name %></li>
+  <li>
+    <%= list.name %>
+    <%= link_to '顯示', controller: 'LotterySources', action: 'show', id: list %>
+    <%= link_to '編輯', controller: 'LotterySources', action: 'edit', id: list %>
+    <%= link_to '刪除', controller: 'LotterySources', action: 'destroy', id: list %>
+  </li>
 <% end %>
 </ul>
 <p>
-  <%= link_to '加新貓貓', :controller => 'LotterySources', :action => 'new' %>
+  <%= link_to '加新貓貓', controller: 'LotterySources', action: 'new' %>
 </p>
+<% if @lottery_sources.count > 0 %>
+<p>
+  <%= link_to '抽貓貓！', controller: 'LotterySources', action: 'lottery' %>
+</p>
+<% end %>
