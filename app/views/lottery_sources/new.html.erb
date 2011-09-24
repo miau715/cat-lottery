@@ -1,5 +1,5 @@
 <h1>加入新貓</h1>
-<%= form_for @lottery_sources, url: { controller: 'lottery_sources', action: 'create' } do |f| %>
+<%= form_for @lottery_source, url: lottery_sources_path do |f| %>
     <%= render partial: 'form', locals: { f: f } %>
-    <%= f.submit "加啦" %><%= link_to '不想加了', controller: 'LotterySources', action: 'index' %>
+    <%= f.submit "加啦" %><%= link_to '不想加了', lottery_sources_path %>
 <% end %>

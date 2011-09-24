@@ -1,5 +1,5 @@
 <h1>編輯貓貓資料</h1>
-<%= form_for @lottery_sources, url: { controller: 'lottery_sources', action: 'update', id: @lottery_sources } do |f| %>
+<%= form_for @lottery_source, url: lottery_source_path(@lottery_source), method: :put do |f| %>
     <%= render partial: 'form', locals: { f: f } %>
-    <%= f.submit "我變" %><%= link_to '不想變了', controller: 'LotterySources', action: 'index' %>
+    <%= f.submit "我變" %><%= link_to '不想變了', lottery_sources_path %>
 <% end %>

@@ -3,17 +3,17 @@
 <% @lottery_sources.each do |list| %>
   <li>
     <%= list.name %>
-    <%= link_to '顯示', controller: 'LotterySources', action: 'show', id: list %>
-    <%= link_to '編輯', controller: 'LotterySources', action: 'edit', id: list %>
-    <%= link_to '刪除', controller: 'LotterySources', action: 'destroy', id: list %>
+    <%= link_to '顯示', lottery_source_path(list) %>
+    <%= link_to '編輯', edit_lottery_source_path(list) %>
+    <%= button_to '刪除', lottery_source_path(list), method: :delete %>
   </li>
 <% end %>
 </ul>
 <p>
-  <%= link_to '加新貓貓', controller: 'LotterySources', action: 'new' %>
+  <%= link_to '加新貓貓', new_lottery_source_path %>
 </p>
 <% if @lottery_sources.count > 0 %>
 <p>
-  <%= link_to '抽貓貓！', controller: 'LotterySources', action: 'lottery' %>
+  <%= link_to '抽貓貓！', lottery_lottery_sources_path %>
 </p>
 <% end %>

@@ -1,6 +1,6 @@
-    <% if @lottery_sources.errors.any? %>
+    <% if @lottery_source.errors.any? %>
       <ul>
-      <% @lottery_sources.errors.full_messages.each do |msg| %>
+      <% @lottery_source.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
