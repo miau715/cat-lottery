@@ -2,9 +2,9 @@ require 'test_helper'
 
 class CatsControllerTest < ActionController::TestCase
   setup do
-    @cat = cats(:one)
+    @cat = cats(:koshima)
     @update = {
-      name: 'OPAPI'
+      name: 'OPUPU'
     }
   end
   
@@ -34,5 +34,6 @@ class CatsControllerTest < ActionController::TestCase
   
   test "should lottery cat" do
     #.....orz
+    assert(cat: @lottery)
   end
 end
