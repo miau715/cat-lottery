@@ -1,0 +1,19 @@
+<h1>抽獎名單</h1>
+<ul>
+<% @cats.each do |list| %>
+  <li>
+    <%= list.name %>
+    <%= link_to '顯示', cat_path(list) %>
+    <%= link_to '編輯', edit_cat_path(list) %>
+    <%= button_to '刪除', cat_path(list), method: :delete %>
+  </li>
+<% end %>
+</ul>
+<p>
+  <%= link_to '加新貓貓', new_cat_path %>
+</p>
+<% if @cats.count > 0 %>
+<p>
+  <%= link_to '抽貓貓！', lottery_cats_path %>
+</p>
+<% end %>

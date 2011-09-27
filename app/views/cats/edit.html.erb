@@ -1,0 +1,5 @@
+<h1>編輯貓貓資料</h1>
+<%= form_for @cat, url: cat_path(@cat), method: :put do |f| %>
+    <%= render partial: 'form', locals: { f: f } %>
+    <%= f.submit "我變" %><%= link_to '不想變了', cats_path %>
+<% end %>
