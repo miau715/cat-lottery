@@ -1,4 +1,8 @@
 <h1>抽到的貓貓</h1>
-<p>抽到的貓貓是「<%= @cat.name %>」</p>
+<p>抽到的貓貓是
+<% @cat.each do |cat| %>
+<br />「<%= cat.name %>」
+<% end %>
+</p>
  
 <p><%= link_to '回名單', cats_path %></p>
