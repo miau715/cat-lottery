@@ -45,8 +45,8 @@ class CatsController < ApplicationController
   def lottery
     #list_count = Cat.count
     quantity = 3
-    @lottery_cats = Cat.lottery(quantity)
-    #@lottery_cats = Cat.order('random()').limit(quantity)
+    @cats = Cat.lottery(quantity)
+    #@cats = Cat.order('random()').limit(quantity)
   end
   
   protected
