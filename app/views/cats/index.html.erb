@@ -12,8 +12,19 @@
 <p>
   <%= link_to '加新貓貓', new_cat_path %>
 </p>
+
+<%= form_tag url_for(controller: 'cats', action: 'lottery'), :method => "get" do %>
+  <p>想抽
+  <%= text_field_tag 'quantity' %>
+  隻貓</p>
+  <%= submit_tag '抽！' %>
+<% end %>
+
 <% if @cats.count > 0 %>
+
+  
+
 <p>
-  <%= link_to '抽貓貓！', lottery_cats_path %>
+  <%#= link_to '抽貓貓！', lottery_cats_path %>
 </p>
 <% end %>
