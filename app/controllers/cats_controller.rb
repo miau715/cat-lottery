@@ -43,10 +43,10 @@ class CatsController < ApplicationController
   end
   
   def lottery
-    list_count = Cat.count
+    #list_count = Cat.count
     quantity = 3
-    @cat = Cat.find(:all, order: 'random()')
-    @cat = @cat.first(quantity)
+    @lottery_cats = Cat.lottery(quantity)
+    #@lottery_cats = Cat.order('random()').limit(quantity)
   end
   
   protected
