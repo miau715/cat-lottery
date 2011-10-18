@@ -9,3 +9,7 @@
 
 Cat.delete_all
 Cat.create(name: "OREO")
+Cat.create(name: "P醬")
+Cat.create(name: "秒妙")
+Cat.create(name: "甜不辣")
+Cat.create(name: "豬血糕")
