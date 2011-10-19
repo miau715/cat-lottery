@@ -1,5 +1,17 @@
 <h1>活動資料</h1>
 <p>活動名稱：<%= @event.name %></p>
 <p>活動說明：<%= @event.description%></p>
- 
+
+<ul>
+<% @cats.each do |cat| %>
+  <li>
+    <%= cat.name %>
+    <%= link_to '顯示', event_cat_path(@event,cat) %>
+    <%= link_to '編輯', edit_event_cat_path(@event,cat) %>
+    <%= button_to '刪除', event_cat_path(@event,cat),confirm: '你確定嗎？', method: :delete %>
+  </li>
+<% end %>
+</ul>
+<p><%= link_to '加新貓貓', new_event_cat_path(@event) %></p>
+<p><%= link_to '編輯活動', edit_event_cat_path(@event) %></p>
 <p><%= link_to '回活動列表', events_path %></p>
