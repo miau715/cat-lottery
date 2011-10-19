@@ -32,7 +32,7 @@ class CatsController < ApplicationController
       flash[:notice] = "成功更新"
       redirect_to cat_url(@cat)
     else
-      render :action => :edit
+      redirect_to edit_cat_url
     end
   end
   

@@ -1,0 +1,7 @@
+<h1>編輯活動資料</h1>
+<%= form_for @event, url: event_path(@event), method: :put do |f| %>
+<p>
+  <%= render partial: 'form', locals: { f: f } %>
+</p>
+    <%= f.submit "我變" %><%= link_to '不想變了', events_path %>
+<% end %>

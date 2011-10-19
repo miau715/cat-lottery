@@ -20,6 +20,9 @@ CatLottery::Application.routes.draw do
     end
   end
   
+  resources :events do
+  end
+  
   # Sample resource route with options:
   #   resources :products do
   #     member do
@@ -56,7 +59,7 @@ CatLottery::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   # root :to => 'welcome#index'
-  root :to => 'cats#index'
+  #root :to => 'cats#index'
 
   # See how all your routes lay out with "rake routes"
 

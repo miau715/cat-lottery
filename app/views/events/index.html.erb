@@ -1,0 +1,15 @@
+<h1>活動列表</h1>
+<ul>
+<% @events.each do |list| %>
+  <li>
+    <%= list.name %>
+    <%= link_to '顯示', event_path(list) %>
+    <%= link_to '編輯', edit_event_path(list) %>
+    <%= button_to '刪除', event_path(list), method: :delete %>
+  </li>
+<% end %>
+</ul>
+<p>
+  <%= link_to '建立新活動', new_event_path %>
+</p>
+
