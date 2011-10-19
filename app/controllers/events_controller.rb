@@ -18,6 +18,8 @@ class EventsController < ApplicationController
   
   def show
     @page_title = @event.name
+    @cats = Cat.all
+    
   end
   
   def edit

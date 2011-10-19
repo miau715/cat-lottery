@@ -1,45 +1,59 @@
 # encoding: utf-8
 class CatsController < ApplicationController
-  before_filter :find_cat, only: [ :show, :edit, :update, :destroy]
   
   def index
     @cats = Cat.all
+    
+    @event = Event.find(params[:event_id])
+    redirect_to event_path(@board)
   end
   
   def new
-    @cat = Cat.new
+    @event = Event.find(params[:event_id])
+    @cat = @event.cats.build
   end
   
   def create
-    @cat = Cat.new(params[:cat])
+    @event = Event.find(params[:event_id])
+    @cat = @event.cats.build(params[:cat])
+    
     if @cat.save
       flash[:notice] = "成功加入"
-      redirect_to cats_url
+      redirect_to event_cat_path(@event, @cat)
     else
-      render action: :new
+      redirect_to new_event_cat_url
     end
   end
   
   def show
     @page_title = @cat.name
+    @event = Event.find(params[:event_id])
+    @cat = @event.cats.find(params[:id])
   end
   
   def edit
+    @event = Event.find(params[:event_id])
+    @cat = @event.cats.find(params[:id])
   end
   
   def update
+    @event = Event.find(params[:event_id])
+    @cat = @event.cats.find(params[:id])
+    
     if @cat.update_attributes(params[:cat])
       flash[:notice] = "成功更新"
-      redirect_to cat_url(@cat)
+      redirect_to event_cat_path(@event,@cat)
     else
-      redirect_to edit_cat_url
+      redirect_to edit_event_cat_url
     end
   end
   
   def destroy
+    @event = Event.find(params[:event_id])
+    @cat = @event.cats.find(params[:id])
     flash[:alert] = "成功刪除"
     @cat.destroy
-    redirect_to cats_url
+    redirect_to event_cats_path(@event, @cat)
   end
   
   def lottery
@@ -47,8 +61,4 @@ class CatsController < ApplicationController
     @cats = Cat.lottery(params[:quantity])
   end
   
-  protected
-  def find_cat
-    @cat = Cat.find(params[:id])
-  end
 end
