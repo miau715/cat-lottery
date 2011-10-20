@@ -21,7 +21,7 @@ class CatsController < ApplicationController
       flash[:notice] = "成功加入"
       redirect_to event_cat_path(@event, @cat)
     else
-      redirect_to new_event_cat_url
+      redirect_to new_event_cat_path
     end
   end
   
@@ -44,7 +44,7 @@ class CatsController < ApplicationController
       flash[:notice] = "成功更新"
       redirect_to event_cat_path(@event,@cat)
     else
-      redirect_to edit_event_cat_url
+      redirect_to edit_event_cat_path
     end
   end
   

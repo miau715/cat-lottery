@@ -13,7 +13,7 @@ class EventsController < ApplicationController
     @event = Event.new(params[:event])
     @event.save
     
-    redirect_to events_url
+    redirect_to events_path
   end
   
   def show
@@ -28,15 +28,15 @@ class EventsController < ApplicationController
   
   def update
     if @event.update_attributes(params[:event])
-      redirect_to event_url(@event)
+      redirect_to event_path(@event)
     else
-      redirect_to edit_event_url
+      redirect_to edit_event_path
     end
   end
   
   def destroy
     @event.destroy
-    redirect_to events_url
+    redirect_to events_path
   end
   
   protected
