@@ -1,5 +1,5 @@
 <h1>加入新貓</h1>
-<%= form_for @cat, url: cats_path do |f| %>
+<%= form_for @cat, url: event_cats_path(@event) do |f| %>
     <%= render partial: 'form', locals: { f: f } %>
-    <%= f.submit "加啦" %><%= link_to '不想加了', cats_path %>
+    <%= f.submit "加啦" %><%= link_to '不想加了', event_path(@event) %>
 <% end %>

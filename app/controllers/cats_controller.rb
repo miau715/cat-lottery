@@ -26,9 +26,9 @@ class CatsController < ApplicationController
   end
   
   def show
-    @page_title = @cat.name
     @event = Event.find(params[:event_id])
     @cat = @event.cats.find(params[:id])
+    @page_title = @cat.name
   end
   
   def edit
@@ -53,7 +53,7 @@ class CatsController < ApplicationController
     @cat = @event.cats.find(params[:id])
     flash[:alert] = "成功刪除"
     @cat.destroy
-    redirect_to event_cats_path(@event, @cat)
+    redirect_to event_path(@event)
   end
   
   def lottery

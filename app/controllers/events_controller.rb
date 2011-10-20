@@ -18,7 +18,7 @@ class EventsController < ApplicationController
   
   def show
     @page_title = @event.name
-    @cats = Cat.all
+    @cats = @event.cats
     
   end
   
