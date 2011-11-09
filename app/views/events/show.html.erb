@@ -5,7 +5,7 @@
 <ul>
 <% @cats.each do |cat| %>
   <li>
-    <%= cat.name %> - <%= cat.event_id %>
+    <%= cat.name %>
     <%= link_to '顯示', event_cat_path(@event,cat) %>
     <%= link_to '編輯', edit_event_cat_path(@event,cat) %>
     <%= button_to '刪除', event_cat_path(@event,cat),confirm: '你確定嗎？', method: :delete %>

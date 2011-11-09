@@ -1,0 +1,9 @@
+<div class="user_navigation">
+  <% if user_signed_in? %>
+    嗨! <%= current_user.email %>
+    <%= link_to("登出", destroy_user_session_path, :method => :delete) %>
+  <% else %>
+    <%= link_to "登入", new_user_session_path %>
+    <%= link_to "註冊", new_user_registration_path %>
+  <% end %>
+</div>
