@@ -1,0 +1,12 @@
+<h1>這是首頁</h1>
+
+<p>這樣總行了吧，會動嗎？</p>
+
+<%= form_for("user", :url => user_session_path) do |f| %>
+  <%= f.text_field :email %><br />
+  <%= f.password_field :password %><br />
+  <%= f.check_box :remember_me %>
+  <%= f.label :remember_me %><br />
+  <%= f.submit 'Sign in' %><br />
+  <%= link_to "Forgot your password?", new_password_path('user') %>
+<% end %>
