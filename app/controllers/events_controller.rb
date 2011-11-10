@@ -1,8 +1,10 @@
 class EventsController < ApplicationController
   before_filter :find_event, only: [ :show, :edit, :update, :destroy]
-  before_filter :authenticate_user!, except: [:index]
+  before_filter :check_user, except: [:index]
   
   def index
+    
+    
     @events = Event.all
   end
   
@@ -44,4 +46,12 @@ class EventsController < ApplicationController
   def find_event
     @event = Event.find(params[:id])
   end
+  
+  protected
+  def check_user
+    if !user_signed_in?
+      redirect_to root_path
+    end
+  end
+  
 end
