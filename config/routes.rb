@@ -18,9 +18,10 @@ CatLottery::Application.routes.draw do
   
   resources :events do
     resources :cats do
-      collection do
-        get :lottery
-      end
+    end
+    
+    collection do
+      get :lottery
     end
   end
   

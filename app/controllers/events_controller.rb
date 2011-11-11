@@ -3,9 +3,10 @@ class EventsController < ApplicationController
   before_filter :check_user, except: [:index]
   
   def index
-    
-    
-    @events = Event.all
+    if (current_user)
+      @user = current_user
+      @events = @user.events.all
+    end
   end
   
   def new
@@ -14,6 +15,7 @@ class EventsController < ApplicationController
   
   def create
     @event = Event.new(params[:event])
+    @event.user_id = current_user.id
     @event.save
     
     redirect_to events_path
@@ -42,6 +44,11 @@ class EventsController < ApplicationController
     redirect_to events_path
   end
   
+  def lottery
+    @event = Event.find(params[:id])
+    @cats = @event.cats.lottery(params[:quantity])
+  end
+  
   protected
   def find_event
     @event = Event.find(params[:id])
@@ -53,5 +60,4 @@ class EventsController < ApplicationController
       redirect_to root_path
     end
   end
-  
 end

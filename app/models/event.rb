@@ -5,4 +5,6 @@ class Event < ActiveRecord::Base
   has_many :cats
   belongs_to :user
   
+  scope :lottery, lambda{|quantity| order('random()').limit(quantity)}
+  
 end

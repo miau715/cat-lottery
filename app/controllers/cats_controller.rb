@@ -56,9 +56,9 @@ class CatsController < ApplicationController
     redirect_to event_path(@event)
   end
   
-  def lottery
+  #def lottery
     #list_count = Cat.count
-    @cats = Cat.lottery(params[:quantity])
-  end
+    #@cats = Cat.lottery(params[:quantity])
+  #end
   
 end

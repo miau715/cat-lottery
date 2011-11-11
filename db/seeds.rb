@@ -7,14 +7,14 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Event.delete_all
-Cat.delete_all
+Event.destroy_all
+Cat.destroy_all
 
-Event.create(name: "我是新活動", description: "嘎哩噗哩啵！")
-Event.create(name: "活動二號", description: "我是活動二號")
+e1 = Event.create(name: "我是新活動", description: "嘎哩噗哩啵！", user_id: 1)
+e2 = Event.create(name: "活動二號", description: "我是活動二號", user_id: 2)
 
-Cat.create(name: "OREO", event_id: 1)
-Cat.create(name: "P醬", event_id: 1)
-Cat.create(name: "秒妙", event_id: 1)
-Cat.create(name: "甜不辣", event_id: 2)
-Cat.create(name: "豬血糕", event_id: 2)
+e1.cats.create(name: "OREO")
+e1.cats.create(name: "P醬")
+e1.cats.create(name: "秒妙")
+e2.cats.create(name: "甜不辣")
+e2.cats.create(name: "豬血糕")

@@ -2,6 +2,13 @@
 <p>活動名稱：<%= @event.name %></p>
 <p>活動說明：<%= @event.description%></p>
 
+<%= form_tag url_for(action: 'lottery', controller: 'events'), :method => "get" do %>
+  <p>想抽
+  <%= text_field_tag 'quantity' %>
+  隻貓</p>
+  <%= submit_tag '抽！' %>
+<% end %>
+
 <ul>
 <% @cats.each do |cat| %>
   <li>

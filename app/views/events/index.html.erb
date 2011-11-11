@@ -1,8 +1,13 @@
-<h1>活動列表</h1>
+<h1>首頁</h1>
+
+<% if user_signed_in? %>
+
+你的id是 <%= current_user.id %>
+
 <ul>
 <% @events.each do |list| %>
   <li>
-    <%= list.name %>
+    <%= list.name %> - <%= list.user_id %>
     <%= link_to '顯示', event_path(list) %>
     <%= link_to '編輯', edit_event_path(list) %>
     <%= button_to '刪除', event_path(list), method: :delete %>
@@ -13,3 +18,16 @@
   <%= link_to '建立新活動', new_event_path %>
 </p>
 
+<% else %>
+
+<%= form_for("user", :url => user_session_path) do |f| %>
+  <%= f.text_field :email %> <br />
+  <%= f.password_field :password %> <br />
+  <%= f.check_box :remember_me %>
+  <%= f.label :remember_me %> <br />
+  <%= f.submit 'Sign in' %> <br />
+  <%= link_to "Forgot your password?", new_password_path('user') %>
+<% end %>
+
+
+<% end %>
