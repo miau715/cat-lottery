@@ -11,8 +11,8 @@ Event.destroy_all
 Cat.destroy_all
 User.destroy_all
 
-u1 = User.create(email: 'admin@gg.com', password: 'admin', password_confirmation: 'admin')
-u2 = User.create(email: 'zz@gg.com', password: 'zzz', password_confirmation: 'zzz')
+u1 = User.create(email: 'admin@gg.com', password: 'adminnn', password_confirmation: 'adminnn')
+u2 = User.create(email: 'zz@gg.com', password: 'zzzzzz', password_confirmation: 'zzzzzz')
 
 e1 = u1.events.create(name: "我是新活動", description: "嘎哩噗哩啵！")
 e2 = u2.events.create(name: "活動二號", description: "我是活動二號")

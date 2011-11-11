@@ -6,6 +6,7 @@
   <p>想抽
   <%= text_field_tag 'quantity' %>
   隻貓</p>
+  <%= hidden_field_tag "id", @event.id %>
   <%= submit_tag '抽！' %>
 <% end %>
 
