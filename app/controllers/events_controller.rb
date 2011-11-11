@@ -46,7 +46,8 @@ class EventsController < ApplicationController
   
   def lottery
     @event = Event.find(params[:id])
-    @cats = @event.cats.lottery(params[:quantity])
+    #@cats = @event.cats.lottery(params[:quantity])
+    @cats = @event.cats.lottery(1)
   end
   
   protected
