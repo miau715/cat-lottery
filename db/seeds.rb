@@ -9,12 +9,16 @@
 
 Event.destroy_all
 Cat.destroy_all
+User.destroy_all
 
-e1 = Event.create(name: "我是新活動", description: "嘎哩噗哩啵！", user_id: 1)
-e2 = Event.create(name: "活動二號", description: "我是活動二號", user_id: 2)
+u1 = User.create(:email => 'admin@gg.com', :password => 'admin', :password_confirmation => 'admin')
+u2 = User.create(:email => 'zz@gg.com', :password => 'zzz', :password_confirmation => 'zzz')
 
-e1.cats.create(name: "OREO")
-e1.cats.create(name: "P醬")
-e1.cats.create(name: "秒妙")
-e2.cats.create(name: "甜不辣")
-e2.cats.create(name: "豬血糕")
+u1.events.create(name: "我是新活動", description: "嘎哩噗哩啵！")
+u2.events.create(name: "活動二號", description: "我是活動二號")
+
+u1.events.cats.create(name: "OREO")
+u1.events.cats.create(name: "P醬")
+u1.events.cats.create(name: "秒妙")
+u2.events.cats.create(name: "甜不辣")
+u2.events.cats.create(name: "豬血糕")
