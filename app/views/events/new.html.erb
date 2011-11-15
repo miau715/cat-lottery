@@ -1,3 +1,6 @@
+<% content_for :head do %>
+<script src="/assets/javascripts/add_prizes_form.js" type="text/javascript"></script>
+<% end %>
 <h1>加入新活動</h1>
 <%= form_for @event, url: events_path do |f| %>
   <%= render partial: 'form', locals: { f: f } %>
